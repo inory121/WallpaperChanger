@@ -33,6 +33,7 @@ def make_request(url, proxy_enabled=None, timeout=10):
                                timeout=timeout)
         else:
             req = requests.get(url, headers=config.headers, timeout=timeout)
+        logger.info(f'请求结果{req}')
         return req
     except requests.RequestException as e:
-        logger.error(f'\n----请检查代理设置(检查config.yaml的代理配置)----\n{e}')
+        logger.error(f'\n----请检查代理设置(检查config.yaml的代理配置),非代理下载不稳定，建议开启代理----\n{e}')
