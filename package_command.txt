@@ -1,0 +1,2 @@
+pyinstaller --onefile --clean --upx-dir=".\upx.exe" --add-data "config.yaml;." main.py
+python setup.py build

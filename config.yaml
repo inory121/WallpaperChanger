@@ -1,0 +1,23 @@
+# 全局代理开关
+proxy:
+  enabled: true
+
+headers:
+  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0"
+  Cookie: "vote=1;cf_clearance=lF_zfJ68LNv9iFmGK0gUKwRRmREKqcRFEpKArcJxVEU-1707538630-1-AQdUEHbmz/XqdYBoHD3ezNaRyTxpTyj2THFeZiSmBfVSzsbwAXGMLsPrhmnLFsGI4NeeLGaL2edcvrOR+qbOTmk=;country=--;blacklisted_tags=%5B%22%22%5D;konachan.net=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJThiM2JiNDI5NDhmM2Q3N2NkNTY1YWRiYTUyYzAyYmNlBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMUhOSDNOUVUwOEZqbll5S0xIMjdUM05ON1JPOWp4YU1UWUMvcHJwZlVrQUU9BjsARg%3D%3D--a28166cfdacc73d6307dfd52817d7333e23452c0;reported_error=1;forum_post_last_read_at=%222024-02-10T07%3A38%3A23%2B01%3A00%22"
+
+#单独代理开关
+proxies_v2ray:
+  enabled: true
+  http: "socks5://127.0.0.1:10808"
+  https: "socks5://127.0.0.1:10808"
+
+proxies_ssr:
+  enabled: false
+  http: "socks5://127.0.0.1:10807"
+  https: "socks5://127.0.0.1:10807"
+
+# Konachan相关配置(domain设置为net不需要代理，com需要代理)
+konachan:
+  rating: s #Safe only Questionable only (Ecchi) Explicit only (Hentai)
+  domain: com
