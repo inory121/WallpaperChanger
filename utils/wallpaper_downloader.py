@@ -57,8 +57,9 @@ class ImageDownloader(QObject):
             id_number = item['id']
             parent_id = item['parent_id']
             rating = item['rating']
-            file_url = item['file_url']
-            if parent_id is not None or rating != 's':
+            file_url = item[config.konachan_size]
+            # 有parent_id的容易下载重复图片，所以跳过
+            if parent_id is not None or rating not in config.konachan_rating:
                 continue
             file_suffix = os.path.splitext(file_url)[1]
             final_file_path = os.path.join(final_folder, str(id_number) + file_suffix)
@@ -79,7 +80,7 @@ class ImageDownloader(QObject):
         pages_num = None
         try:
             tags = input('Input:请输入您的tags:')
-            limit = input('Input:请输入您的limit(想要获取多少张图片，每次上限100):')
+            limit = input('Input:请输入您的limit(想要获取多少张图片，每次上限100,根据rating筛选后可能少于输入的数量):')
             res = make_request(self.BASE_URL + '/post').content
             soup = BeautifulSoup(res, 'html.parser')
             next_page_element = soup.find('a', class_='next_page')
@@ -89,6 +90,7 @@ class ImageDownloader(QObject):
             logger.info(f'开始下载第{pages_num}页')
             final_folder = self._create_folder(tags)
             url_net = f'{self.BASE_URL}/post.json?page={pages_num}&tags={tags}&limit={limit}'
+            logger.info(f'请求url为{url_net}')
             res = make_request(url_net).content
             jsonlist = json.loads(res)
             if not jsonlist:

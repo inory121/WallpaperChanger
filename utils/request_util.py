@@ -3,14 +3,6 @@ from . import config_util as config
 from .log_util import logger
 
 
-def extract_cookies(cookie):
-    """
-    从浏览器或者request headers中拿到cookie字符串，提取为字典格式的cookies
-    """
-    cookies = dict([part.split("=", 1) for part in cookie.split("; ")])
-    return cookies
-
-
 def make_request(url, proxy_enabled=None, timeout=10):
     """
     发起网络请求到指定的 URL，可选包含 headers 和 proxies 参数。
@@ -24,16 +16,18 @@ def make_request(url, proxy_enabled=None, timeout=10):
     返回值:
         bytes: 请求返回的内容。
     """
+    proxy_dict = {
+        'http': config.proxy_url,
+        'https': config.proxy_url,
+    }
     if proxy_enabled is None:
         proxy_enabled = config.proxy_enabled
     try:
         if proxy_enabled:
-            req = requests.get(url, headers=config.headers,
-                               proxies=config.proxies_v2ray if config.proxies_v2ray_enabled else config.proxies_ssr,
-                               timeout=timeout)
+            req = requests.get(url, headers=config.headers, proxies=proxy_dict, timeout=timeout)
         else:
             req = requests.get(url, headers=config.headers, timeout=timeout)
-        logger.info(f'请求结果{req}')
+        # logger.info(f'请求结果{req}')
         return req
     except requests.RequestException as e:
         logger.error(f'\n----请检查代理设置(检查config.yaml的代理配置),非代理下载不稳定，建议开启代理----\n{e}')
