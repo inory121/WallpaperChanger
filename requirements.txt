@@ -1,7 +1,4 @@
-pyqt5~=5.15.9
-yaml~=0.2.5
-pyyaml~=6.0
-pathlib~=1.0.1
-requests~=2.31.0
-beautifulsoup4~=4.12.2
-nicegui~=1.4.14
+beautifulsoup4==4.12.3
+PyQt5==5.15.10
+PyYAML==6.0.1
+Requests==2.31.0

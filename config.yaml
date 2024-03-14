@@ -1,15 +1,15 @@
-# È«¾Ö´úÀí¿ª¹Ø
+# å…¨å±€ä»£ç†å¼€å…³
 proxy:
   enabled: true
-  url: "socks5://127.0.0.1:10808"
+  url: "http://127.0.0.1:10809"
 
 
 headers:
-  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36 Edg/121.0.0.0"
-  Cookie: "vote=1; country=TW; blacklisted_tags=%5B%22%22%5D; konachan.com=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWZjZWQzOWEzYzQ3MWJjOTFjODIzMjY0ZTRhNTYxNTQ3BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMXVvWUtuT1RNNXg1VkVaRWs4ajY1V0lSWGUxK0prb0w1TjF6U1EvVVFtcWM9BjsARg%3D%3D--684c4b1adfd3224c7ec7615a0a52861a527ee754; reported_error=1; forum_post_last_read_at=%222024-02-11T10%3A21%3A26%2B01%3A00%22
+  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0"
+  Cookie: "cf_clearance=WselsHTlG7k5c7.yNsk_RJuOu8SLdt2UBItEDS_4zYs-1710388735-1.0.1.1-tnkF8ae51rhiLDsdjXXJfhBnnD1cIjfGhE2x0rXL6YcyQwcAawvqZhvS0IoRbn.68oCQQjp81Z1HbbYzT5fFcg; vote=1; country=TW; reported_error=1; login=inory; pass_hash=0822e999899c1e035f32f460373e6bf6b329bbee; forum_post_last_read_at=%221960-01-01T00%3A00%3A00.000Z%22; user_id=278823; user_info=278823%3B20%3B0; has_mail=0; comments_updated=0; block_reason=; resize_image=1; show_advanced_editing=1; my_tags=; blacklisted_tags=%5B%5D; held_post_count=0; konachan.com=BAh7CEkiD3Nlc3Npb25faWQGOgZFVEkiJWUwM2QxODkwYzZjNmYyOTk4YmU3OTc1ZTFlMzhhZTk1BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMVB2VVdJMlI4Um5wLzNvWCtVYnlzVXd5YnhuUDRBNXM1Sk53RFcyc3E3WEE9BjsARkkiDHVzZXJfaWQGOwBGaQMnQQQ%3D--5b05addf22a78225fdfb342a8ec5f8d8cc343e8c
 "
 
-#µ¥¶À´úÀí¿ª¹Ø
+#å•ç‹¬ä»£ç†å¼€å…³
 #proxies_v2ray:
 #  enabled: true
 #  http: "socks5://127.0.0.1:10808"
@@ -20,11 +20,11 @@ headers:
 #  http: "socks5://127.0.0.1:10807"
 #  https: "socks5://127.0.0.1:10807"
 
-# KonachanÏà¹ØÅäÖÃ(domainÉèÖÃÎªnet²»ĞèÒª´úÀí£¬comĞèÒª´úÀí)
+# Konachanç›¸å…³é…ç½®(domainè®¾ç½®ä¸ºnetä¸éœ€è¦ä»£ç†ï¼Œcoméœ€è¦ä»£ç†)
 konachan:
   rating:
     - s # s:Safe only
-    - q # q: Questionable only (Ecchi)
-#    - e # e: Explicit only (Hentai)
+    # - q # q: Questionable only (Ecchi)
+    # - e # e: Explicit only (Hentai)
   domain: com
-  size: file_url # file_url ÊÇÔ­Í¼ | jpeg_url ÊÇĞ¡Í¼
+  size: file_url # file_url æ˜¯åŸå›¾ | jpeg_url æ˜¯å°å›¾

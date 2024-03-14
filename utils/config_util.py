@@ -2,7 +2,7 @@ import yaml
 from .log_util import logger
 # 读取YAML配置文件
 try:
-    with open('./config.yaml', "r") as yaml_file:
+    with open('./config.yaml', "rb") as yaml_file:
         config_data = yaml.safe_load(yaml_file)
 except FileNotFoundError:
     logger.error("配置文件不存在，请检查路径。")
